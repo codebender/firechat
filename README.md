@@ -1,6 +1,8 @@
 # Firechat
 A simple chat for new friends https://codebender-12e17.web.app/
 
+![Demo](demo.gif)
+
 ## Dependencies
 - Firebase Project: https://console.firebase.google.com/
 - Go 1.13: `brew install go`
