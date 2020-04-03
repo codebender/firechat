@@ -42,10 +42,10 @@ func SendMessage(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Methods", "POST")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Max-Age", "3600")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.WriteHeader(http.StatusNoContent)
 		return
 	case http.MethodPost:
-		w.Header().Set("Access-Control-Allow-Credentials", "true")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 
 		var request SendMessageRequest

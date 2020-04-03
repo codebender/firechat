@@ -11,9 +11,9 @@ import (
 
 // ChatMessage represents the message stored in a conversation in the datastore
 type ChatMessage struct {
-	Author    string `json:"author"`
-	Message   string `json:"message"`
-	Timestamp int64  `json:"timestamp"`
+	Author    string `firestore:"author"`
+	Message   string `firestore:"message"`
+	Timestamp int64  `firestore:"timestamp"`
 }
 
 // FirestoreRepository is the datastore interface
