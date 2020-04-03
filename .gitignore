@@ -1,3 +1,5 @@
 vendor
 
 serviceAccountKey.json
+
+.DS_Store
