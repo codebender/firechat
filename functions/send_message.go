@@ -8,10 +8,9 @@ import (
 	"os"
 	"strings"
 	"time"
-)
 
-// PROJECT_ID is set by the Cloud Function runtime
-var projectID = os.Getenv("PROJECT_ID")
+	"cloud.google.com/go/firestore"
+)
 
 // repo is the datastore that is reused between function calls
 var repo FirestoreRepository
@@ -30,9 +29,9 @@ func init() {
 		return
 	}
 
-	repo = NewRepo(projectID, "")
+	repo = NewRepo(firestore.DetectProjectID, "")
 
-	log.Println("Project ID", projectID, "Function Initialized Successfully")
+	log.Println("Function Initialized Successfully")
 }
 
 // SendMessage is the entry point for an http trigger Google Clound Function.

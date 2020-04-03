@@ -27,11 +27,15 @@ const messagesCollectionPathTemplate string = "conversations/%s/messages"
 func NewRepo(projectID, credentialFilePath string) FirestoreRepository {
 	ctx := context.Background()
 
-	var opt option.ClientOption
+	var err error
+	var fsClient *firestore.Client
 	if credentialFilePath != "" {
-		opt = option.WithCredentialsFile(credentialFilePath)
+		opt := option.WithCredentialsFile(credentialFilePath)
+		fsClient, err = firestore.NewClient(ctx, projectID, opt)
+	} else {
+		fsClient, err = firestore.NewClient(ctx, projectID)
 	}
-	fsClient, err := firestore.NewClient(ctx, projectID, opt)
+
 	if err != nil {
 		log.Fatalf("Error while configuring Firestore: err=%s", err)
 	}

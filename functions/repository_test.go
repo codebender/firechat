@@ -24,7 +24,7 @@ var TestFirestoreClient *firestore.Client
 var _ = BeforeSuite(createFSTestClient)
 var _ = AfterSuite(closeFSTestClient)
 
-const serviceAccountKey = "./serviceAccountKey.json"
+const serviceAccountKey = "../serviceAccountKey.json"
 const projectID = "codebender-12e17"
 
 func createFSTestClient() {
